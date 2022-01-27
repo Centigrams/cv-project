@@ -1,9 +1,11 @@
 import React from 'react';
+import appStyles from '../Styles/App.module.css';
+import MainContent from './MainContent';
 
 function App() {
   return (
-    <div>
-      <h1>Hello there</h1>
+    <div id={appStyles.app}>
+      <MainContent />
     </div>
   );
 }
