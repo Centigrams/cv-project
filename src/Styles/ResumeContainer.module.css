@@ -1,0 +1,6 @@
+.resumeContainer {
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    height: 100%;
+}

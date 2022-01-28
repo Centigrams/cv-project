@@ -1,15 +1,16 @@
 import React from 'react';
 import HeaderButtons from './HeaderButtons';
 import headerStyles from '../Styles/AppHeader.module.css';
+import CustomAppBar from '../Styles/MUICustomStyledComponents/CustomAppBar';
 
 function AppHeader() {
   return (
-    <header id={headerStyles.header}>
+    <CustomAppBar>
       <div>
-        <h1 id={headerStyles.appName}>Resume Generator</h1>
+        <h1 className={headerStyles.appName}>Resume Generator</h1>
       </div>
       <HeaderButtons />
-    </header>
+    </CustomAppBar>
   );
 }
 

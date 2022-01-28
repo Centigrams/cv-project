@@ -4,7 +4,7 @@ import MainContent from './MainContent';
 
 function App() {
   return (
-    <div id={appStyles.app}>
+    <div className={appStyles.app}>
       <MainContent />
     </div>
   );
