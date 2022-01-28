@@ -1,6 +1,6 @@
-.resumeContainer {
+.appMain {
     display: flex;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: #c5c6c7;
     height: 100%;
 }

@@ -1,6 +1,7 @@
 .resumePreview {
     margin-top: 3rem;
-    border: 1px solid black;
+    margin-bottom: 3rem;
     width: 215.9mm;
     height: 279.4mm;
+    background-color: white;
 }
