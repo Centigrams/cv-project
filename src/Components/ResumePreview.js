@@ -5,10 +5,10 @@ import WorkExperienceSection from './WorkExperienceSection';
 import EducationSection from './EducationSection';
 import SkillsInterestsSection from './SkillsInterestsSection';
 
-function ResumePreview() {
+function ResumePreview({ editMode }) {
   return (
     <div className={resumePreviewStyles.resumePreview}>
-      <PersonalInfo />
+      <PersonalInfo editMode={editMode} />
       <div>
         <h2 className={resumePreviewStyles.header}>WORK EXPERIENCE</h2>
       </div>

@@ -1,0 +1,26 @@
+/*All components' edit mode styling will be placed here*/
+
+.name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    height: 2rem;
+    width: 100%;
+}
+
+.email {
+    font-size: 1rem;
+    font-weight: 800;
+    width: calc(100% /3);
+}
+
+.contactNo {
+    font-size: 1rem;
+    font-weight: 800;
+    width: calc(100% /3);
+}
+
+.location {
+    font-size: 1rem;
+    font-weight: 800;
+    width: calc(100% /3);
+}

@@ -17,14 +17,14 @@ function ElevationScroll(props) {
   });
 }
 
-function AppHeader() {
+function AppHeader({ setEditMode }) {
   return (
     <ElevationScroll>
       <CustomAppBar>
         <div>
           <h1 className={headerStyles.appName}>Resume Generator</h1>
         </div>
-        <HeaderButtons />
+        <HeaderButtons setEditMode={setEditMode} />
       </CustomAppBar>
     </ElevationScroll>
   );
