@@ -1,0 +1,28 @@
+.resumeContent {
+    margin-top: 1rem;
+}
+
+.elementHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.institutionName, .duration {
+    font-size: 1rem;
+}
+
+.title, .location {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.locationAndDuration {
+    text-align: right;
+}
+
+.list {
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+}

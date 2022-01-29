@@ -1,5 +1,3 @@
-// noinspection JSValidateTypes
-
 import React from 'react';
 import { useScrollTrigger } from '@mui/material';
 import HeaderButtons from './HeaderButtons';

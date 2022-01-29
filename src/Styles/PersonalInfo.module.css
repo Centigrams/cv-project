@@ -1,0 +1,11 @@
+.personalInfo {
+    border-bottom: 0.2rem solid black;
+}
+
+.name {
+    font-size: 1.8rem;
+}
+
+.contactAndAddress {
+    font-size: 1rem;
+}
