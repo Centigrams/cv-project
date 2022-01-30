@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import personalInfoStyles from '../Styles/PersonalInfo.module.css';
 import editModeStyles from '../Styles/editmode.module.css';
+import {
+  EditModeContext, EmailContext, NameContext, ContactNumberContext, AddressContext,
+} from './MainContent';
 
-function PersonalInfo({ editMode }) {
-  // TODO: Add new styling for edit mode.
+function PersonalInfo() {
+  const { editMode } = useContext(EditModeContext);
+  const { name, setName } = useContext(NameContext);
+  const { email, setEmail } = useContext(EmailContext);
+  const { contactNo, setContactNo } = useContext(ContactNumberContext);
+  const { address, setAddress } = useContext(AddressContext);
+
+  const handleChangeInName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleChangeInEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleChangeInContactNo = (e) => {
+    setContactNo(e.target.value);
+  };
+
+  const handleChangeInAddress = (e) => {
+    setAddress(e.target.value);
+  };
+
   if (editMode) {
     return (
       <div className={personalInfoStyles.personalInfo}>
         <div>
-          <input className={editModeStyles.name} value="First Last" />
+          <input className={editModeStyles.name} value={name} onChange={handleChangeInName} />
         </div>
         <div>
-          <input value="sample@sample.com" type="text" className={editModeStyles.email} />
-          <input value="(555) 555-5555" type="text" className={editModeStyles.contactNo} />
-          <input value="City, ST" type="text" className={editModeStyles.location} />
+          <input value={email} onChange={handleChangeInEmail} type="text" className={editModeStyles.email} />
+          <input value={contactNo} onChange={handleChangeInContactNo} type="text" className={editModeStyles.contactNo} />
+          <input value={address} onChange={handleChangeInAddress} type="text" className={editModeStyles.location} />
         </div>
       </div>
     );
@@ -21,11 +45,19 @@ function PersonalInfo({ editMode }) {
   return (
     <div className={personalInfoStyles.personalInfo}>
       <div>
-        <h1 className={personalInfoStyles.name}>First Last</h1>
+        <h1 className={personalInfoStyles.name}>{name}</h1>
       </div>
       <div>
         <h2 className={personalInfoStyles.contactAndAddress}>
-          sample@sample.com | (555) 555-5555 | City, ST
+          {email}
+          {' '}
+          |
+          {' '}
+          {contactNo}
+          {' '}
+          |
+          {' '}
+          {address}
         </h2>
       </div>
     </div>
