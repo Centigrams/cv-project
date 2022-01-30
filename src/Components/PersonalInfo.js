@@ -1,43 +1,58 @@
 import React, { useContext } from 'react';
 import personalInfoStyles from '../Styles/PersonalInfo.module.css';
 import editModeStyles from '../Styles/editmode.module.css';
-import {
-  EditModeContext, EmailContext, NameContext, ContactNumberContext, AddressContext,
-} from './MainContent';
+import { EditModeContext, PersonalInfoContext } from './MainContent';
 
 function PersonalInfo() {
   const { editMode } = useContext(EditModeContext);
-  const { name, setName } = useContext(NameContext);
-  const { email, setEmail } = useContext(EmailContext);
-  const { contactNo, setContactNo } = useContext(ContactNumberContext);
-  const { address, setAddress } = useContext(AddressContext);
+  const { personalInfo, setPersonalInfo } = useContext(PersonalInfoContext);
 
   const handleChangeInName = (e) => {
-    setName(e.target.value);
+    // setName(e.target.value);
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      name: e.target.value,
+    }));
   };
 
   const handleChangeInEmail = (e) => {
-    setEmail(e.target.value);
+    // setEmail(e.target.value);
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      email: e.target.value,
+    }));
   };
 
   const handleChangeInContactNo = (e) => {
-    setContactNo(e.target.value);
+    // setContactNo(e.target.value);
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      contactNo: e.target.value,
+    }));
   };
 
   const handleChangeInAddress = (e) => {
-    setAddress(e.target.value);
+    // setAddress(e.target.value);
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      address: e.target.value,
+    }));
   };
 
   if (editMode) {
     return (
       <div className={personalInfoStyles.personalInfo}>
         <div>
-          <input className={editModeStyles.name} onChange={handleChangeInName} value={name} />
+          <input
+            className={editModeStyles.name}
+            onChange={handleChangeInName}
+            value={personalInfo.name}
+          />
         </div>
         <div>
-          <input type="text" className={editModeStyles.email} onChange={handleChangeInEmail} value={email} />
-          <input type="tel" className={editModeStyles.contactNo} onChange={handleChangeInContactNo} value={contactNo} />
-          <input type="text" className={editModeStyles.location} onChange={handleChangeInAddress} value={address} />
+          <input type="text" className={editModeStyles.email} onChange={handleChangeInEmail} value={personalInfo.email} />
+          <input type="tel" className={editModeStyles.contactNo} onChange={handleChangeInContactNo} value={personalInfo.contactNo} />
+          <input type="text" className={editModeStyles.location} onChange={handleChangeInAddress} value={personalInfo.address} />
         </div>
       </div>
     );
@@ -45,19 +60,19 @@ function PersonalInfo() {
   return (
     <div className={personalInfoStyles.personalInfo}>
       <div>
-        <h1 className={personalInfoStyles.name}>{name}</h1>
+        <h1 className={personalInfoStyles.name}>{personalInfo.name}</h1>
       </div>
       <div>
         <h2 className={personalInfoStyles.contactAndAddress}>
-          {email}
+          {personalInfo.email}
           {' '}
           |
           {' '}
-          {contactNo}
+          {personalInfo.contactNo}
           {' '}
           |
           {' '}
-          {address}
+          {personalInfo.address}
         </h2>
       </div>
     </div>
