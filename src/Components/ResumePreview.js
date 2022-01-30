@@ -5,22 +5,10 @@ import WorkExperienceSection from './WorkExperienceSection';
 import EducationSection from './EducationSection';
 import SkillsInterestsSection from './SkillsInterestsSection';
 
-function ResumePreview({
-  editMode, name, setName, email, setEmail, contactNo, setContactNo, address, setAddress,
-}) {
+function ResumePreview() {
   return (
     <div className={resumePreviewStyles.resumePreview}>
-      <PersonalInfo
-        editMode={editMode}
-        name={name}
-        setName={setName}
-        email={email}
-        setEmail={setEmail}
-        contactNo={contactNo}
-        setContactNo={setContactNo}
-        address={address}
-        setAddress={setAddress}
-      />
+      <PersonalInfo />
       <div>
         <h2 className={resumePreviewStyles.header}>WORK EXPERIENCE</h2>
       </div>

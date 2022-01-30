@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import personalInfoStyles from '../Styles/PersonalInfo.module.css';
 import editModeStyles from '../Styles/editmode.module.css';
+import {
+  EditModeContext, EmailContext, NameContext, ContactNumberContext, AddressContext,
+} from './MainContent';
 
-function PersonalInfo({
-  editMode, name, setName, email, setEmail, contactNo, setContactNo, address, setAddress,
-}) {
+function PersonalInfo() {
+  const { editMode } = useContext(EditModeContext);
+  const { name, setName } = useContext(NameContext);
+  const { email, setEmail } = useContext(EmailContext);
+  const { contactNo, setContactNo } = useContext(ContactNumberContext);
+  const { address, setAddress } = useContext(AddressContext);
+
   const handleChangeInName = (e) => {
     setName(e.target.value);
   };
