@@ -2,6 +2,8 @@ import React from 'react';
 import styles from '../Styles/resumeContent.module.css';
 
 function WorkExperienceElement() {
+  // TODO: On right click above component: Delete.
+  // TODO: WorkExperienceElement input fields.
   return (
     <div className={styles.resumeContent}>
       <div className={styles.elementHeader}>
