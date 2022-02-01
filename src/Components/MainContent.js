@@ -10,6 +10,8 @@ export const WorkExperienceContext = createContext(undefined);
 export const WorkExperiencesContext = createContext(undefined);
 export const EducationContext = createContext(undefined);
 export const EducationArrayContext = createContext(undefined);
+export const SkillsContext = createContext(undefined);
+export const InterestsContext = createContext(undefined);
 
 function MainContent() {
   const [editMode, setEditMode] = useState(false);
@@ -95,6 +97,18 @@ function MainContent() {
     educationArray, setEducationArray,
   }), [educationArray]);
 
+  const [skills, setSkills] = useState('Strategic planning; strategic '
+    + 'partnerships; revenue modeling & forecasting');
+  const skillsValue = useMemo(() => ({
+    skills, setSkills,
+  }), [skills]);
+
+  const [interests, setInterests] = useState('Racing; traveling; fishing; yachting; '
+    + 'Reddit; Classical music');
+  const interestsValue = useMemo(() => ({
+    interests, setInterests,
+  }), [interests]);
+
   return (
     <div className={styles.mainContainer}>
       <EditModeContext.Provider value={editModeValue}>
@@ -104,7 +118,11 @@ function MainContent() {
             <WorkExperiencesContext.Provider value={workExperiencesValue}>
               <EducationContext.Provider value={educationValue}>
                 <EducationArrayContext.Provider value={educationArrayValue}>
-                  <AppMainContent />
+                  <SkillsContext.Provider value={skillsValue}>
+                    <InterestsContext.Provider value={interestsValue}>
+                      <AppMainContent />
+                    </InterestsContext.Provider>
+                  </SkillsContext.Provider>
                 </EducationArrayContext.Provider>
               </EducationContext.Provider>
             </WorkExperiencesContext.Provider>
