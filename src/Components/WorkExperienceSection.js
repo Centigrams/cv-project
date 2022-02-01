@@ -4,7 +4,7 @@ import { EditModeContext, WorkExperiencesContext } from './MainContent';
 
 function WorkExperienceSection() {
   const { editMode } = useContext(EditModeContext);
-  const { workExperiencesArray } = useContext(WorkExperiencesContext);
+  const { workExperiencesArray, setWorkExperiencesArray } = useContext(WorkExperiencesContext);
 
   /**
    * Placing the add buttons here and using the if (editMode) {...} logic
@@ -21,6 +21,8 @@ function WorkExperienceSection() {
           key={experience.id}
           experience={experience}
           editMode={editMode}
+          workExperiencesArray={workExperiencesArray}
+          setWorkExperiencesArray={setWorkExperiencesArray}
         />
       ))}
     </div>

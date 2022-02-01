@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { IconButton } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
 import styles from '../Styles/resumeContent.module.css';
 import editStyles from '../Styles/editmode.module.css';
 
-function WorkExperienceElement({ experience, editMode }) {
-  // TODO: On right click above component: Delete.
+function WorkExperienceElement({
+  experience, editMode,
+  workExperiencesArray, setWorkExperiencesArray,
+}) {
+  // TODO: Button above component: Delete.
 
   const [workExperience, setWorkExperience] = useState({
     companyName: experience.companyName,
@@ -64,9 +69,18 @@ function WorkExperienceElement({ experience, editMode }) {
     }));
   };
 
+  const deleteItem = () => {
+    const arr = [...workExperiencesArray];
+    const newArr = arr.filter((item) => item.id !== experience.id);
+    setWorkExperiencesArray(newArr);
+  };
+
   if (editMode) {
     return (
-      <div className={styles.resumeContent}>
+      <div className={editStyles.resumeContent}>
+        <IconButton aria-label="delete" size="small" onClick={deleteItem}>
+          <ClearIcon fontSize="inherit" />
+        </IconButton>
         <div className={styles.elementHeader}>
           <div>
             <input

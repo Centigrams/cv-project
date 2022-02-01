@@ -1,5 +1,4 @@
 /*All components' edit mode styling will be placed here*/
-
 .name {
     font-size: 1.8rem;
     font-weight: bold;
@@ -17,6 +16,11 @@
     font-size: 1rem;
     font-weight: 800;
     width: calc(100% /3);
+}
+
+.resumeContent {
+    margin-top: 0.2rem;
+    border: 0.15rem solid gray;
 }
 
 .location {
