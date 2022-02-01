@@ -10,6 +10,9 @@
 
 .header {
     font-size: 1rem;
+}
+
+.topBorder {
     border-bottom: 0.2rem solid black;
     margin-top: 1rem;
 }
