@@ -8,6 +8,8 @@ export const EditModeContext = createContext(undefined);
 export const PersonalInfoContext = createContext(undefined);
 export const WorkExperienceContext = createContext(undefined);
 export const WorkExperiencesContext = createContext(undefined);
+export const EducationContext = createContext(undefined);
+export const EducationArrayContext = createContext(undefined);
 
 function MainContent() {
   const [editMode, setEditMode] = useState(false);
@@ -64,6 +66,46 @@ function MainContent() {
     workExperiencesArray, setWorkExperiencesArray,
   }), [workExperiencesArray]);
 
+  const [education, setEducation] = useState({
+    id: uuidv4(),
+    universityName: 'University Name',
+    degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
+    graduationDate: 'Graduation Month, Year',
+    location: 'City, ST',
+    firstBullet: 'List your honors like summa cum laude or GPA; (list only if GPA is over 3.3)',
+    secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
+    thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
+  });
+  const educationValue = useMemo(() => ({
+    education, setEducation,
+  }), [education]);
+
+  const [educationArray, setEducationArray] = useState([
+    {
+      id: uuidv4(),
+      universityName: 'University Name',
+      degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
+      graduationDate: 'Graduation Month, Year',
+      location: 'City, ST',
+      firstBullet: 'List your honors like summa cum laude or GPA; (list only if GPA is over 3.3)',
+      secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
+      thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
+    },
+    {
+      id: uuidv4(),
+      universityName: 'Placeholder',
+      degree: 'Placeholder',
+      graduationDate: 'Placeholder',
+      location: 'City, ST',
+      firstBullet: 'Placeholder',
+      secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
+      thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
+    },
+  ]);
+  const educationArrayValue = useMemo(() => ({
+    educationArray, setEducationArray,
+  }), [educationArray]);
+
   return (
     <div className={styles.mainContainer}>
       <EditModeContext.Provider value={editModeValue}>
@@ -71,7 +113,11 @@ function MainContent() {
         <PersonalInfoContext.Provider value={personalInfoValue}>
           <WorkExperienceContext.Provider value={workExperienceValue}>
             <WorkExperiencesContext.Provider value={workExperiencesValue}>
-              <AppMainContent />
+              <EducationContext.Provider value={educationValue}>
+                <EducationArrayContext.Provider value={educationArrayValue}>
+                  <AppMainContent />
+                </EducationArrayContext.Provider>
+              </EducationContext.Provider>
             </WorkExperiencesContext.Provider>
           </WorkExperienceContext.Provider>
         </PersonalInfoContext.Provider>

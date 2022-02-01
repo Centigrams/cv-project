@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import EducationElement from './EducationElement';
+import { EditModeContext, EducationArrayContext } from './MainContent';
 
 function EducationSection() {
+  const { editMode } = useContext(EditModeContext);
+  const { educationArray, setEducationArray } = useContext(EducationArrayContext);
+
   return (
     <div>
-      <EducationElement />
+      {educationArray.map((education) => (
+        <EducationElement
+          key={education.id}
+          education={education}
+          editMode={editMode}
+          educationArray={educationArray}
+          setEducationArray={setEducationArray}
+        />
+      ))}
     </div>
   );
 }

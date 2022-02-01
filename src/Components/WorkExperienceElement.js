@@ -131,6 +131,7 @@ function WorkExperienceElement({
       </div>
     );
   }
+
   return (
     <div className={styles.resumeContent}>
       <div className={styles.elementHeader}>
