@@ -64,8 +64,6 @@ function MainContent() {
     workExperiencesArray, setWorkExperiencesArray,
   }), [workExperiencesArray]);
 
-  // TODO: Edit Mode Add Work Experience Buttons (on header maybe)
-  // IDEA: Replace hard coded section headers, and place buttons there when edit mode.
   return (
     <div className={styles.mainContainer}>
       <EditModeContext.Provider value={editModeValue}>
