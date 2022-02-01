@@ -1,39 +1,28 @@
 import React, { useContext } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import WorkExperienceElement from './WorkExperienceElement';
-import { EditModeContext, WorkExperiencesContext, WorkExperienceContext } from './MainContent';
-import CustomAddButtons from '../Styles/MUICustomStyledComponents/CustomAddButtons';
+import { EditModeContext, WorkExperiencesContext } from './MainContent';
 
 function WorkExperienceSection() {
   const { editMode } = useContext(EditModeContext);
-  const { workExperiencesArray, setWorkExperiencesArray } = useContext(WorkExperiencesContext);
-  const { workExperience, setWorkExperience } = useContext(WorkExperienceContext);
+  const { workExperiencesArray } = useContext(WorkExperiencesContext);
 
-  const addWorkExperience = () => {
-    setWorkExperiencesArray(workExperiencesArray.concat(workExperience));
-    setWorkExperience({
-      id: uuidv4(),
-      companyName: 'Company Name',
-      jobTitle: 'Job Title',
-      tenure: 'Month Year - Month Year',
-      location: 'City, ST',
-      firstCR: 'Core Responsibility',
-      secondCR: 'Core Responsibility',
-      thirdCR: 'Core Responsibility',
-    });
-  };
-
-  if (editMode) {
-    return (
-      <div>
-        { workExperiencesArray.map((experience) => <WorkExperienceElement key={experience.id} />)}
-        <CustomAddButtons onClick={addWorkExperience}>Add Work Experience</CustomAddButtons>
-      </div>
-    );
-  }
+  /**
+   * Placing the add buttons here and using the if (editMode) {...} logic
+   * will not save the changes made in the components. It is expected that it will also occur
+   * in the next few sections of the resume preview. The best implementation for now would be
+   * to render the "Add button" on the section headers instead if edit mode is true.
+   *
+   * TL;DR: Adding an "Add button" if editMode is true here will break the preview.
+   * */
   return (
     <div>
-      { workExperiencesArray.map((experience) => <WorkExperienceElement key={experience.id} />)}
+      {workExperiencesArray.map((experience) => (
+        <WorkExperienceElement
+          key={experience.id}
+          experience={experience}
+          editMode={editMode}
+        />
+      ))}
     </div>
   );
 }

@@ -24,3 +24,22 @@
     font-weight: 800;
     width: calc(100% /3);
 }
+
+.institutionName, .duration {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.institutionName, .title {
+    width: 20rem;
+}
+
+.title, .institutionAddress {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.listElement {
+    width: 100%;
+}
