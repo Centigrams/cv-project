@@ -39,7 +39,6 @@ function MainContent() {
     workExperience, setWorkExperience,
   }), [workExperience]);
 
-  // TODO: Remove placeholder arrays later.
   const [workExperiencesArray, setWorkExperiencesArray] = useState([
     {
       id: uuidv4(),

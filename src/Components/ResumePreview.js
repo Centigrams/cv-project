@@ -13,8 +13,6 @@ import {
 } from './MainContent';
 import SectionHeaderButton from './SectionHeaderButton';
 
-// TODO: Add element functionality.
-
 function ResumePreview() {
   const { editMode } = useContext(EditModeContext);
   const { workExperience, setWorkExperience } = useContext(WorkExperienceContext);
