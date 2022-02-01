@@ -4,7 +4,13 @@ import PersonalInfo from './PersonalInfo';
 import WorkExperienceSection from './WorkExperienceSection';
 import EducationSection from './EducationSection';
 import SkillsInterestsSection from './SkillsInterestsSection';
-import { EditModeContext, WorkExperienceContext, WorkExperiencesContext } from './MainContent';
+import {
+  EditModeContext,
+  EducationArrayContext,
+  EducationContext,
+  WorkExperienceContext,
+  WorkExperiencesContext,
+} from './MainContent';
 import SectionHeaderButton from './SectionHeaderButton';
 
 // TODO: Add element functionality.
@@ -13,6 +19,8 @@ function ResumePreview() {
   const { editMode } = useContext(EditModeContext);
   const { workExperience, setWorkExperience } = useContext(WorkExperienceContext);
   const { workExperiencesArray, setWorkExperiencesArray } = useContext(WorkExperiencesContext);
+  const { education, setEducation } = useContext(EducationContext);
+  const { educationArray, setEducationArray } = useContext(EducationArrayContext);
 
   let workExperienceHeader;
   let educationHeader;
@@ -31,6 +39,10 @@ function ResumePreview() {
       <SectionHeaderButton
         text="ADD EDUCATION"
         section="education"
+        education={education}
+        setEducation={setEducation}
+        educationArray={educationArray}
+        setEducationArray={setEducationArray}
       />
     );
   } else {

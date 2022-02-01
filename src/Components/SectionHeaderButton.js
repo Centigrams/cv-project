@@ -10,6 +10,10 @@ function SectionHeaderButton({
   setWorkExperience,
   workExperiencesArray,
   setWorkExperiencesArray,
+  education,
+  setEducation,
+  educationArray,
+  setEducationArray,
 }) {
   const addNewWorkExperience = () => {
     setWorkExperiencesArray(workExperiencesArray.concat(workExperience));
@@ -25,8 +29,18 @@ function SectionHeaderButton({
     });
   };
 
-  // TODO: Add education functionality.
-  const addEducation = () => {
+  const addNewEducation = () => {
+    setEducationArray(educationArray.concat(education));
+    setEducation({
+      id: uuidv4(),
+      universityName: 'University Name',
+      degree: 'Degree (e.g., BS), Majors (e.g., Computer Science)',
+      graduationDate: 'Graduation Month, Year',
+      location: 'City, ST',
+      firstBullet: 'List your honors like summa cum laude or GPA; (list only if GPA is over 3.3)',
+      secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
+      thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
+    });
   };
 
   if (section === 'workExperience') {
@@ -37,7 +51,7 @@ function SectionHeaderButton({
     );
   } if (section === 'education') {
     return (
-      <CustomAddButtons variant="outlined" endIcon={<AddIcon />} onClick={addEducation}>
+      <CustomAddButtons variant="outlined" endIcon={<AddIcon />} onClick={addNewEducation}>
         {text}
       </CustomAddButtons>
     );

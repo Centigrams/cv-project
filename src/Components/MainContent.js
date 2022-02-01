@@ -91,16 +91,6 @@ function MainContent() {
       secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
       thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
     },
-    {
-      id: uuidv4(),
-      universityName: 'Placeholder',
-      degree: 'Placeholder',
-      graduationDate: 'Placeholder',
-      location: 'City, ST',
-      firstBullet: 'Placeholder',
-      secondBullet: 'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
-      thirdBullet: 'Any other fun stuff like varsity sports, or something that gives you a little color',
-    },
   ]);
   const educationArrayValue = useMemo(() => ({
     educationArray, setEducationArray,
