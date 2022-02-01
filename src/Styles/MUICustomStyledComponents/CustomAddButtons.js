@@ -4,8 +4,9 @@ import { Button } from '@mui/material';
 const CustomAddButtons = styled(Button)`
   background-color: #45a29e;
   color: white;
-  margin-top: 0.5rem;
-  height: 2rem;
+  height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
 
   &:hover {
     background-color: #358181;
