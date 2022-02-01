@@ -1,3 +1,10 @@
 .appName {
     color: #66fcf1;
 }
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 44rem;
+}
