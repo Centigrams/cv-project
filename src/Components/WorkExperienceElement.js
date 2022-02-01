@@ -8,8 +8,6 @@ function WorkExperienceElement({
   experience, editMode,
   workExperiencesArray, setWorkExperiencesArray,
 }) {
-  // TODO: Button above component: Delete.
-
   const [workExperience, setWorkExperience] = useState({
     companyName: experience.companyName,
     jobTitle: experience.jobTitle,

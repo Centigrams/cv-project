@@ -8,7 +8,6 @@ function PersonalInfo() {
   const { personalInfo, setPersonalInfo } = useContext(PersonalInfoContext);
 
   const handleChangeInName = (e) => {
-    // setName(e.target.value);
     setPersonalInfo((prevState) => ({
       ...prevState,
       name: e.target.value,
@@ -16,7 +15,6 @@ function PersonalInfo() {
   };
 
   const handleChangeInEmail = (e) => {
-    // setEmail(e.target.value);
     setPersonalInfo((prevState) => ({
       ...prevState,
       email: e.target.value,
@@ -24,7 +22,6 @@ function PersonalInfo() {
   };
 
   const handleChangeInContactNo = (e) => {
-    // setContactNo(e.target.value);
     setPersonalInfo((prevState) => ({
       ...prevState,
       contactNo: e.target.value,
@@ -32,7 +29,6 @@ function PersonalInfo() {
   };
 
   const handleChangeInAddress = (e) => {
-    // setAddress(e.target.value);
     setPersonalInfo((prevState) => ({
       ...prevState,
       address: e.target.value,
