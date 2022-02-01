@@ -18,8 +18,8 @@ function MainContent() {
   const editModeValue = useMemo(() => ({ editMode, setEditMode }), [editMode]);
 
   const [personalInfo, setPersonalInfo] = useState({
-    name: 'First Lasts',
-    email: 'sample@sample.xyz',
+    name: 'First Last',
+    email: 'professional@sample.xyz',
     contactNo: '(555) 555-5555',
     address: 'City Name, ST',
   });

@@ -43,11 +43,11 @@ function SkillsInterestsElement() {
     <div className={resumeContentStyles.resumeContent}>
       <ul className={resumeContentStyles.list}>
         <li>
-          Skills:
+          {'Skills: '}
           {skills}
         </li>
         <li>
-          Interests:
+          {'Interests: '}
           {interests}
         </li>
       </ul>
