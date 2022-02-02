@@ -112,7 +112,6 @@ function MainContent() {
   return (
     <div className={styles.mainContainer}>
       <EditModeContext.Provider value={editModeValue}>
-        <AppHeader />
         <PersonalInfoContext.Provider value={personalInfoValue}>
           <WorkExperienceContext.Provider value={workExperienceValue}>
             <WorkExperiencesContext.Provider value={workExperiencesValue}>
@@ -120,6 +119,7 @@ function MainContent() {
                 <EducationArrayContext.Provider value={educationArrayValue}>
                   <SkillsContext.Provider value={skillsValue}>
                     <InterestsContext.Provider value={interestsValue}>
+                      <AppHeader />
                       <AppMainContent />
                     </InterestsContext.Provider>
                   </SkillsContext.Provider>
