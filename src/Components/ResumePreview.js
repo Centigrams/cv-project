@@ -13,9 +13,6 @@ import {
 } from './MainContent';
 import SectionHeaderButton from './SectionHeaderButton';
 
-// TODO: During edit mode, when element is hovered, show border highlight.
-// TODO: Character limits for input fields.
-// TODO: PDF Generator.
 function ResumePreview() {
   const { editMode } = useContext(EditModeContext);
   const { workExperience, setWorkExperience } = useContext(WorkExperienceContext);
