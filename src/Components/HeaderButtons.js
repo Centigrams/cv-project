@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { ButtonGroup } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
+import { useReactToPrint } from 'react-to-print';
 import CustomButtons from '../Styles/MUICustomStyledComponents/CustomHeaderButtons';
 import {
   EditModeContext,
   EducationArrayContext,
   InterestsContext,
-  PersonalInfoContext,
+  PersonalInfoContext, ResumePreviewRefContext,
   SkillsContext,
   WorkExperiencesContext,
 } from './MainContent';
@@ -71,6 +72,27 @@ function HeaderButtons() {
     setEditMode((prevEditMode) => !prevEditMode);
   };
 
+  /**
+   * In order for the generatePDF function to work, we used the createRef method
+   * which was then passed in a context to avoid prop drilling. Take note that this
+   * occurred at the parent component of the AppHeader and the AppMainContent components.
+   * In the ResumePreview component, we used the created context as a ref attached to the
+   * div (see ResumePreview.js return statement), this will be the component to be printed when
+   * the button is clicked.
+   * ---
+   * In this component, we used the same context used in ResumePreview in the generatePDF function,
+   * more specifically in the useReactToPrint hook.
+   * ---
+   * Summary:
+   * 1. Create ref in parent component of AppHeader and AppMainContent.
+   * 2. Pass the ref in ResumePreview.js
+   * 3. Use the ref to generatePDF with useReactToPrint hook.
+   * */
+  const previewRef = useContext(ResumePreviewRefContext);
+  const generatePDF = useReactToPrint({
+    content: () => previewRef.current,
+  });
+
   let editButton;
   if (editMode) {
     editButton = 'SAVE';
@@ -79,7 +101,7 @@ function HeaderButtons() {
   }
   return (
     <ButtonGroup variant="text">
-      <CustomButtons variant="contained">GENERATE AS PDF</CustomButtons>
+      <CustomButtons variant="contained" onClick={generatePDF}>GENERATE AS PDF</CustomButtons>
       <CustomButtons variant="contained" onClick={toggleEditMode}>{editButton}</CustomButtons>
       <CustomButtons variant="contained" onClick={resetPreview}>RESET</CustomButtons>
     </ButtonGroup>

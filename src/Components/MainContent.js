@@ -1,4 +1,6 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, {
+  createContext, useMemo, useState, createRef,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../Styles/MainContent.module.css';
 import AppHeader from './AppHeader';
@@ -12,6 +14,7 @@ export const EducationContext = createContext(undefined);
 export const EducationArrayContext = createContext(undefined);
 export const SkillsContext = createContext(undefined);
 export const InterestsContext = createContext(undefined);
+export const ResumePreviewRefContext = createContext(undefined);
 
 function MainContent() {
   const [editMode, setEditMode] = useState(false);
@@ -109,6 +112,9 @@ function MainContent() {
     interests, setInterests,
   }), [interests]);
 
+  // Used to generate PDF.
+  const previewRef = createRef();
+
   return (
     <div className={styles.mainContainer}>
       <EditModeContext.Provider value={editModeValue}>
@@ -119,8 +125,10 @@ function MainContent() {
                 <EducationArrayContext.Provider value={educationArrayValue}>
                   <SkillsContext.Provider value={skillsValue}>
                     <InterestsContext.Provider value={interestsValue}>
-                      <AppHeader />
-                      <AppMainContent />
+                      <ResumePreviewRefContext.Provider value={previewRef}>
+                        <AppHeader />
+                        <AppMainContent />
+                      </ResumePreviewRefContext.Provider>
                     </InterestsContext.Provider>
                   </SkillsContext.Provider>
                 </EducationArrayContext.Provider>

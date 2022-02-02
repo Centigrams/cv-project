@@ -7,7 +7,7 @@ import SkillsInterestsSection from './SkillsInterestsSection';
 import {
   EditModeContext,
   EducationArrayContext,
-  EducationContext,
+  EducationContext, ResumePreviewRefContext,
   WorkExperienceContext,
   WorkExperiencesContext,
 } from './MainContent';
@@ -22,6 +22,7 @@ function ResumePreview() {
   const { workExperiencesArray, setWorkExperiencesArray } = useContext(WorkExperiencesContext);
   const { education, setEducation } = useContext(EducationContext);
   const { educationArray, setEducationArray } = useContext(EducationArrayContext);
+  const previewRef = useContext(ResumePreviewRefContext);
 
   let workExperienceHeader;
   let educationHeader;
@@ -52,7 +53,7 @@ function ResumePreview() {
   }
 
   return (
-    <div className={resumePreviewStyles.resumePreview}>
+    <div className={resumePreviewStyles.resumePreview} ref={previewRef}>
       <PersonalInfo />
       <div className={resumePreviewStyles.topBorder}>
         {workExperienceHeader}
